@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Snake!</title>
+		<style>
+
+			h1 { 
+				font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+				font-size: 48px;
+				-webkit-text-stroke: 2px black;
+				-webkit-text-fill-color: #E5E4E2; 
+				color: #E5E4E2;
+				-webkit-animation: colorchange 1s 6;
+				-webkit-animation-direction: alternate;
+			}
+			@-webkit-keyframes colorchange {
+				0% {
+					-webkit-text-stroke: 10px white;
+					letter-spacing: 0;
+				}
+				100% {
+					-webkit-text-stroke: 10px black;
+					letter-spacing: 18px;
+				}
+			}
+			#canvas {
+				width: 1000px;
+				height: 500px;
+				margin: 0px auto;
+				border: 4px solid black;
+				background-color: #8EEBEC;
+			}
+		</style>
+	</head>
+	
+	<body id="body" bgcolor="#7F5217" onload="animateBackground(870)">
+
+		<h1> <center> <b>Simple Snake!</b> </center> </h1>
+		
+		<div id="canvas">
+			<canvas id="myCanvas" width="1000" height="500"></canvas>
+		</div>
+		
+		<script>
+			// animate background color using HSL (representation of points in RGB color model)
+			function animateBackground(i) {
+				body.style.backgroundColor = 'hsl('+i+', 100%, 50%)';
+				setTimeout(function() {
+					animateBackground(++i)
+				}, i);
+			}
+		</script>
+		<script src="SimpleSnake.js"></script>
+	</body>
+		
+	
+</html>
